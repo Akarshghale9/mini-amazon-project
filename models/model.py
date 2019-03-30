@@ -23,3 +23,5 @@ def login_user(username):
 	result = db['users'].find_one(query)
 
 	return result
+
+	

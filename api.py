@@ -8,8 +8,11 @@ app.config['SECRET_KEY'] = 'hello'
 @app.route('/') 
 def home():
 	
-	return render_template('home.html',title = 'home',home = 'home')
+	return render_template('index.html',title = 'home',home = 'home')
+@app.route('/welcome')
+def welcome():
 
+	return render_template('welcome.html',title = 'welcome')
 @app.route('/about') 
 def about():
 
@@ -40,7 +43,7 @@ def login():
 			if user['password'] == password:
 				session['username'] = user['username']
 				session['c_type'] = user['c_type']
-				return redirect(url_for('home'))
+				return redirect(url_for('welcome'))
 			return "wrong password, go back and try again!"
 
 	else:
